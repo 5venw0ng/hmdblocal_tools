@@ -1,6 +1,10 @@
 ## 项目介绍
 
-本项目用于本地化查询、导出 HMDB 中的代谢物的信息。原始数据来自于：https://hmdb.ca/downloads ，先使用 Python 将原始代谢物的数据导入到 Mongo DB 中，然后在提供查询和导出。
+本项目用于本地化查询、导出 HMDB 中的代谢物的信息。原始数据来自于：https://hmdb.ca/downloads (版本5.0，Data Set of All Metabolites)，先使用 Python 将原始代谢物的数据导入到 Mongo DB 中，然后在提供查询和导出。
+
+> HMDB is offered to the public as a freely available resource. Use and re-distribution of the data, in whole or in part, for commercial purposes requires explicit permission of the authors and explicit acknowledgment of the source material (HMDB) and the original publication (see below). We ask that users who download significant portions of the database cite the HMDB paper in any resulting publications.
+
+
 
 ## 运行说明
 
