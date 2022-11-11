@@ -1,0 +1,20 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog ../dbchangelog-3.9.xsd">
+
+    <!-- 文件A 确保第一个执行，最好把数据结构初始化都放到这里 -->
+
+    <changeSet id="init-202010151055" author="wangyuliang" runInTransaction="true">
+        <sqlFile path="classpath:/db/sql/adfontes-fries.sql" encoding="UTF-8" />
+    </changeSet>
+
+    <!--<changeSet id="modify-default-admin-password" author="wangyuliang" context="seed" >
+        <sql>
+            UPDATE SYS_USER SET SYS_USER.`password`='88bb9ab150f9e52f513357f002ca586a' , SYS_USER.salt='isfuasdfalsdf' WHERE SYS_USER.login_name='admin';
+            UPDATE SYS_USER SET SYS_USER.`password`='46041242fdbdf9cabf0b35629af859a7' , SYS_USER.salt='!53jfud933fl' WHERE SYS_USER.login_name='ry';
+        </sql>
+    </changeSet>-->
+
+
+</databaseChangeLog>

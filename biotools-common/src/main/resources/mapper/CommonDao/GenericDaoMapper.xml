@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.CommonDao.mapper.GenericDaoMapper">
+
+    <select id="findByAnd" parameterType="Map" resultType="Map">
+        SELECT
+		<foreach item="queryField" collection="queryFields" separator="," >
+			#{queryField}
+		</foreach>
+        FROM
+			#{tableName}
+		<where>
+			<foreach item="whereField" collection="whereFields">
+				AND ${whereField.fieldName}=#{whereField.fieldValue}
+			</foreach>
+		</where>
+    </select>
+
+</mapper>

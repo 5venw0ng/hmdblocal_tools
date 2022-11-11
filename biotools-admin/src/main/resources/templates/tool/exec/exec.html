@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" >
+<head>
+	<th:block th:include="include :: header('方法执行')" />
+</head>
+<style>
+    .droppable-active{background-color:#ffe!important}.tools a{cursor:pointer;font-size:80%}.form-body .col-md-6,.form-body .col-md-12{min-height:400px}.draggable{cursor:move}
+</style>
+<body class="white-bg">
+    <div class="wrapper wrapper-content animated fadeInRight ibox-content">
+        <form class="form-horizontal m" id="form-shipment-add" method="post" action="/tool/executefunc/exec">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">方法字符串：</label>
+                <div class="col-sm-8">
+                    <input name="invokeTarget" class="form-control" type="text">
+                    spring服务名+方法名()，例如  productServiceImpl.list('1','2','3')
+                </div>
+                <br/>
+            </div>
+            <br/><button type="submit">执行</button>
+        </form>
+    </div>
+    <th:block th:include="include :: footer" />
+</body>
+</html>

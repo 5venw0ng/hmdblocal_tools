@@ -1,0 +1,23 @@
+package ${basePackage}.service.impl;
+
+import com.adfontes.common.services.impl.GenericServicesImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+import ${basePackage}.${moduleName}.mapper.${ClassName}Mapper;
+import ${basePackage}.${moduleName}.domain.${ClassName};
+import ${basePackage}.${moduleName}.service.I${ClassName}Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+/**
+ * ${functionName} 服务层实现
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+@Service
+@Transactional(propagation= Propagation.NESTED,isolation= Isolation.DEFAULT,readOnly = false,rollbackFor=RuntimeException.class)
+public class ${ClassName}ServiceImpl extends GenericServicesImpl<${ClassName}Mapper, ${ClassName}> implements I${ClassName}Service
+{
+
+}

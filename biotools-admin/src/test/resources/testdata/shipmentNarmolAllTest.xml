@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<dataset>
+
+    <adfontes.Shipment shipment_id="900001" shipment_Type_Id="NORMAL_INOUT" status_id="SHIPMENT_CREATED" destination_facility_id="WY_WAREHOUSE"></adfontes.Shipment>
+    <adfontes.Shipment_Item shipment_id="900001" shipment_item_id="90000101" product_id="IPHONE" quantity="20" />
+    <adfontes.Shipment_Item shipment_id="900001" shipment_item_id="90000102" product_id="ANDROID" quantity="29" />
+    <adfontes.Shipment_Item shipment_id="900001" shipment_item_id="90000103" product_id="SUNSUAM" quantity="73" />
+</dataset>

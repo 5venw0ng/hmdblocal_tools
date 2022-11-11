@@ -1,0 +1,13 @@
+
+<div th:fragment=facilityMgMenu(opt,facilityId)>
+	<ul class="nav nav-pills">
+		<li role="presentation" th:class="${opt eq 'MAIN'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/main/'+${facilityId}}">主页-[[${facility.facilityName}]]</a></li>
+		<li role="presentation" th:class="${opt eq 'SALE_OUT'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/salesFromFacility/'+${facilityId}}">订单发货</a></li>
+		<li role="presentation" th:class="${opt eq 'RET_IN'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/returnToFacility/'+${facilityId}}">退货入库</a></li>
+		<li role="presentation" th:class="${opt eq 'SMT_IN'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/shipmentQueryIn/'+${facilityId}}">其他入库</a></li>
+		<li role="presentation" th:class="${opt eq 'SMT_OUT'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/shipmentQueryOut/'+${facilityId}}">其他出库</a></li>
+		<li role="presentation" th:class="${opt eq 'INV'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/inventoryItemQuery/'+${facilityId}}">库存查看</a></li>
+		<li role="presentation" th:class="${opt eq 'INV_ADJ'} ? 'active' : ''"><a th:href="@{'/facility/facilityManagement/findInventoryAdjustment/'+${facilityId}}">库存调整</a></li>
+	</ul>
+</div>
+

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('服务器维护列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label style="width: 100px">HMDB ID：</label>
+                                <textarea class="form-control" style="display: flow;width: 300px" cols="55" rows="8" name="hmdbIds" id="hmdbIds" value="">
+                                </textarea>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="hmdbSearch()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-sm-12  select-table" id="toolbar" role="group">
+                <a class="btn btn-warning" onclick="exportHMDB()">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+
+            <div class="col-sm-12" style="overflow-x: scroll">
+                <table class="table" style="table-layout: fixed;width:2300px;max-width: 300%">
+                    <thead>
+                        <th>Query ID</th>
+                        <th>HMDB ID</th>
+                        <th style="width: 150px">Name</th>
+                        <th>Chemical<br/>Formula</th>
+                        <th>Average<br/>Molecular<br/>Weight</th>
+                        <th>DirectParent</th>
+                        <th>Kingdom</th>
+                        <th>SuperClass</th>
+                        <th>Class</th>
+                        <th>SubClass</th>
+                        <th style="width: 200px">Source</th>
+                        <th style="width: 300px">Health effect</th>
+                        <th style="width: 300px">Reference</th>
+                        <th style="width: 300px">Pathway</th>
+                    </thead>
+                    <tbody id="hmdbTbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var prefix = ctx + "bio/hmdb";
+
+        $(function() {
+            queryHMDB();
+        });
+
+        function hmdbSearch(){
+            queryHMDB();
+        }
+        function exportHMDB(){
+            var currentId = "formId";
+            let queryIds = $("#hmdbIds").val();
+            if(queryIds == null && queryIds.length() == 0){
+                alert("请输入查询ID")
+                return;
+            }
+            queryIds = queryIds.replaceAll("\r\n",",");
+            queryIds = queryIds.replaceAll("\n",",");
+            $.modal.loading("正在导出数据，请稍后...");
+            $.post(prefix+"/export", {hmdbIds:queryIds}, function(result) {
+                if (result.code == web_status.SUCCESS) {
+                    window.location.href = ctx + "common/download?fileName=" + encodeURI(result.msg) + "&delete=" + true;
+                } else if (result.code == web_status.WARNING) {
+                    $.modal.alertWarning(result.msg)
+                } else {
+                    $.modal.alertError(result.msg);
+                }
+                $.modal.closeLoading();
+            });
+        }
+        function queryHMDB(){
+            $("#hmdbTbody").html("");
+
+            //处理查询框的换行
+            let queryIds = $("#hmdbIds").val();
+            if(queryIds == null && queryIds.length() == 0){
+                alert("请输入查询ID")
+                return;
+            }
+            queryIds = queryIds.replaceAll("\r\n",",");
+            queryIds = queryIds.replaceAll("\n",",");
+
+            $.post(prefix + "/list",{hmdbIds:queryIds},function(result){
+                $.each(result.data,function(k,meta){
+                    var newtr = "<tr>" +
+                        "<td>" + meta.queryId +"</td>" +
+                        "<td>" + meta.hmdbId +"</td>" +
+                        "<td>" + meta.name + "</td>" +
+                        "<td>" + meta.chemicalFormula + "</td>" +
+                        "<td>" + meta.averageMolecularWeight + "</td>" +
+                        "<td>" + meta.directParent + "</td>" +
+                        "<td>" + meta.kingdom + "</td>" +
+                        "<td>" + meta.superClass + "</td>" +
+                        "<td>" + meta.className + "</td>" +
+                        "<td>" + meta.subClass + "</td>";
+
+                    console.log(meta.hmdbId);
+                    var souceStr="";
+                    $.each(meta.sourceStrList,function(i,it){souceStr+=it+"</span><br/>"});
+                    // souceStr += getNodeChild(meta.source,souceStr);
+
+                    var healthEffectStr="";
+                    $.each(meta.healthEffectStrList,function(i,it){healthEffectStr+=it+"<br/>"});
+                    // healthEffectStr += getNodeChild(meta.healthEffect,healthEffectStr);
+
+                    newtr+=  "<td>" + souceStr + "</td>";
+                    newtr+=  "<td>" + healthEffectStr + "</td>";
+
+                    var referenceStr = "";
+                    $.each(meta.referenceMap,function(idx,v){
+                        referenceStr+="<span style='font-weight: bold'>"+idx+"</span>";
+                        /*$.each(v,function(idx1,it){
+                            referenceStr+=it+"<br/>"
+                        });*/
+                        referenceStr+="("+v[0]+")<br/>";
+                    })
+
+                    newtr+= "<td style='overflow: hidden'>" + referenceStr + "</td>";
+                    newtr+= "<td>" + meta.pathWay.map(function(pw){return pw;}).join("<br/>") + "</td></tr>";
+                    $(newtr).appendTo($("#hmdbTbody"));
+                });
+            });
+        }
+
+        function getNodeChild(node){
+            var space = "";
+            var healthEffectStr="";
+            if(node == null){
+                return "unknown";
+            }
+            for (var i=0; i < node.level;i++){
+                space+=" -&nbsp;";
+            }
+            if(node.nodes === null){
+                return space+node.termId;
+            }else{
+                healthEffectStr+=space+node.termId+"<br/>";
+                $.each(node.nodes,function(idx,nd){
+                    healthEffectStr+=getNodeChild(nd)+"<br/>";
+                });
+            }
+            return healthEffectStr;
+        }
+    </script>
+</body>
+</html>

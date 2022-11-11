@@ -1,0 +1,16 @@
+package ${basePackage}.service;
+
+import ${basePackage}.${moduleName}.domain.${ClassName};
+import com.adfontes.common.services.IGenericService;
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * ${functionName} 服务层
+ *
+ * @author ${author}
+ * @date ${datetime}
+ */
+public interface I${ClassName}Service extends IGenericService<${ClassName}>
+{
+
+}

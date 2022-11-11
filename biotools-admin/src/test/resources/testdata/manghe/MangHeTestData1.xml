@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<dataset>
+
+    <Party party_id="90000" party_type_id="PARTY_GROUP"></Party>
+    <party_contact_mech party_id="90000" contact_mech_id="27" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+
+    <Product product_id="TEST_MANGHE" IS_VIRTUAL="Y" product_type_id="FINISHED_GOOD" product_name="测试用盲盒"  />
+    <product_price prod_price_id="1" product_id="TEST_MANGHE" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="899"/>
+
+    <product PRODUCT_ID="TEST_MANGHE_A"
+             PRODUCT_NAME="盲盒商品A"
+             PRODUCT_TYPE_ID="FINISHED_GOOD"
+             IS_VIRTUAL="N"
+             RELEASE_DATE="2021-01-01"
+             IS_VARIANT="Y"></product>
+
+    <product PRODUCT_ID="TEST_MANGHE_B"
+             PRODUCT_NAME="盲盒商品A"
+             PRODUCT_TYPE_ID="FINISHED_GOOD"
+             IS_VIRTUAL="N"
+             RELEASE_DATE="2021-01-01"
+             IS_VARIANT="Y"></product>
+
+    <product PRODUCT_ID="TEST_MANGHE_C"
+             PRODUCT_NAME="盲盒商品A"
+             PRODUCT_TYPE_ID="FINISHED_GOOD"
+             IS_VIRTUAL="N"
+             RELEASE_DATE="2021-01-01"
+             IS_VARIANT="Y"></product>
+
+    <product PRODUCT_ID="TEST_MANGHE_SP1"
+             PRODUCT_NAME="盲盒商品指定"
+             PRODUCT_TYPE_ID="FINISHED_GOOD"
+             IS_VIRTUAL="N"
+             RELEASE_DATE="2021-01-01"
+             IS_VARIANT="Y"></product>
+
+    <PRODUCT_STORE PRODUCT_STORE_ID="TEST_STORE"
+                   STORE_NAME="测试店铺"
+                   PAY_TO_PARTY_ID="0"
+                   HOUR_TO_CANCEL_NON_PAY="4"
+                   INVENTORY_FACILITY_ID="WY_WAREHOUSE"
+                   ONE_INVENTORY_FACILITY="Y"
+                   CHECK_INVENTORY="Y"
+                   RESERVE_INVENTORY="Y"
+                   RESERVE_ORDER_ENUM_ID="INVRO_LIFO_REC"
+                   ORDER_NUMBER_PREFIX=""
+                   AUTO_REFUND="Y"
+                   AUTO_APPROVE_ORDER="Y"
+                   DEFAULT_RETURN_FACILITY_ID=""
+                   NEED_PICKUP_SERVICE="Y"></PRODUCT_STORE>
+    <PRODUCT_STORE_facility product_store_facility_id="9" product_store_id="TEST_STORE" facility_id="WY_WAREHOUSE" from_date="2021-01-01" />
+
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_A" PRODUCT_ASSOC_TYPE_ID="PRODUCT_VARIANT"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_B" PRODUCT_ASSOC_TYPE_ID="PRODUCT_VARIANT"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_C" PRODUCT_ASSOC_TYPE_ID="PRODUCT_VARIANT"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_SP1" PRODUCT_ASSOC_TYPE_ID="PRODUCT_VARIANT"></PRODUCT_ASSOC>
+
+
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_A" PRODUCT_ASSOC_TYPE_ID="REAL_SHIP_ORDER" SEQUENCE_NUM="1"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_B" PRODUCT_ASSOC_TYPE_ID="REAL_SHIP_ORDER" SEQUENCE_NUM="2"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_C" PRODUCT_ASSOC_TYPE_ID="REAL_SHIP_ORDER" SEQUENCE_NUM="3"></PRODUCT_ASSOC>
+    <PRODUCT_ASSOC PRODUCT_ID="TEST_MANGHE" PRODUCT_ID_TO="TEST_MANGHE_SP1" PRODUCT_ASSOC_TYPE_ID="REAL_SHIP_ORDER" QUANTITY="1"></PRODUCT_ASSOC>
+
+
+
+    <inventory_item inventory_item_id="1" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MANGHE_A" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="5" available_to_promise_total="5"></inventory_item>
+    <inventory_item inventory_item_id="2" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MANGHE_B" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+    <inventory_item inventory_item_id="3" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MANGHE_C" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="15" available_to_promise_total="15"></inventory_item>
+    <inventory_item inventory_item_id="4" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MANGHE_SP1" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+
+</dataset>

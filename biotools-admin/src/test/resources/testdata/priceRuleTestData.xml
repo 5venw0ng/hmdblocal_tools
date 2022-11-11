@@ -1,0 +1,94 @@
+ <?xml version='1.0' encoding='UTF-8' ?>
+<dataset>
+
+    <Party party_id="90000" party_type_id="PARTY_GROUP"></Party>
+    <party_contact_mech party_id="90000" contact_mech_id="2" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+
+    <Product product_id="TEST_BG" product_type_id="FINISHED_GOOD" product_name="测试用饼干"  />
+    <product_price prod_price_id="100000" product_id="TEST_BG" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="899"/>
+    <inventory_item inventory_item_id="100000" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_BG" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <product_price_rule product_price_rule_id="100000" rule_name="经销商商品全部5折" from_date="2021-06-01 10:16:19"></product_price_rule>
+    <product_price_cond product_price_cond_id="100000" rule_id="100000"
+                                 cond_type_id="PRICOND_PTYROLE_ID"
+                                 cond_operator_type_id="PC_OPT_EQ"
+                                 cond_value="BULK_CUSTOMER"/>
+    <product_price_cond product_price_cond_id="110001" rule_id="100000"
+                        cond_type_id="PRICOND_PROD_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="TEST_BG"/>
+    <product_price_action product_price_action_id="100000" rule_id="100000" cond_id="100000"
+                                   action_type_id="PC_PERCENT"
+                                   amount="0.5" ></product_price_action>
+
+
+    <Party party_id="90001" party_type_id="PARTY_GROUP"></Party>
+    <party_contact_mech party_id="90001" contact_mech_id="2" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+    <party_role party_role_id="900000" party_id="90001" role_type_id="BULK_CUSTOMER"></party_role>
+
+
+
+    <Product product_id="TEST_MT" product_type_id="FINISHED_GOOD" product_name="测试用面条"  />
+    <product_price prod_price_id="100001" product_id="TEST_MT" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="1783"/>
+    <inventory_item inventory_item_id="100001" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MT" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <Product product_id="TEST_GF" product_type_id="FINISHED_GOOD" product_name="测试用谷粉"  />
+    <product_price prod_price_id="100002" product_id="TEST_GF" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="990"/>
+    <inventory_item inventory_item_id="100002" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_GF" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <Product product_id="TEST_YSY" product_type_id="FINISHED_GOOD" product_name="测试用益生元"  />
+    <product_price prod_price_id="100003" product_id="TEST_YSY" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="550"/>
+    <inventory_item inventory_item_id="100003" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_YSY" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <product_price_rule product_price_rule_id="100001" rule_name="特定商品 TEST_MT 指定价格" from_date="2021-06-01 10:16:19"></product_price_rule>
+    <product_price_cond product_price_cond_id="100001" rule_id="100001"
+                        cond_type_id="PRICOND_PTYROLE_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="BULK_CUSTOMER"/>
+    <product_price_cond product_price_cond_id="100002" rule_id="100001"
+                        cond_type_id="PRICOND_PROD_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="TEST_MT,TEST_YSY"/>
+    <product_price_action product_price_action_id="100001" rule_id="100001" cond_id="100001"
+                          action_type_id="PC_PERCENT"
+                          amount="0.45" />
+
+    <product_price_rule product_price_rule_id="100002" rule_name="特定商品 TEST_GF 大于3个且小于5个 500元" from_date="2021-06-01 10:16:19"></product_price_rule>
+    <product_price_cond product_price_cond_id="100003" rule_id="100002"
+                        cond_type_id="PRICOND_PTYROLE_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="BULK_CUSTOMER"/>
+    <product_price_cond product_price_cond_id="100004" rule_id="100002"
+                        cond_type_id="PRICOND_PROD_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="TEST_GF"/>
+    <product_price_cond product_price_cond_id="100005" rule_id="100002"
+                        cond_type_id="PRICOND_QTY"
+                        cond_operator_type_id="PC_OPT_GTE"
+                        cond_value="3"/>
+    <product_price_cond product_price_cond_id="100006" rule_id="100002"
+                        cond_type_id="PRICOND_QTY"
+                        cond_operator_type_id="PC_OPT_LT"
+                        cond_value="5"/>
+    <product_price_action product_price_action_id="100002" rule_id="100002" cond_id="100002"
+                          action_type_id="PC_MODIFY"
+                          amount="500" />
+
+
+    <product_price_rule product_price_rule_id="100003" rule_name="特定商品 TEST_GF 大于5个100" from_date="2021-06-01 10:16:19"></product_price_rule>
+    <product_price_cond product_price_cond_id="100007" rule_id="100003"
+                        cond_type_id="PRICOND_PTYROLE_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="BULK_CUSTOMER"/>
+    <product_price_cond product_price_cond_id="100008" rule_id="100003"
+                        cond_type_id="PRICOND_PROD_ID"
+                        cond_operator_type_id="PC_OPT_EQ"
+                        cond_value="TEST_GF"/>
+    <product_price_cond product_price_cond_id="100009" rule_id="100003"
+                        cond_type_id="PRICOND_QTY"
+                        cond_operator_type_id="PC_OPT_GTE"
+                        cond_value="5"/>
+    <product_price_action product_price_action_id="100003" rule_id="100003" cond_id="100007"
+                          action_type_id="PC_MODIFY"
+                          amount="100" />
+</dataset>

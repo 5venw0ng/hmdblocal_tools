@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<dataset>
+
+    <Party party_id="90000" party_type_id="PARTY_GROUP"></Party>
+    <party_contact_mech party_id="90000" contact_mech_id="2" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+
+    <Product product_id="TEST_BG" product_type_id="FINISHED_GOOD" product_name="测试用饼干"  />
+    <product_price prod_price_id="100000" product_id="TEST_BG" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="899"/>
+    <inventory_item inventory_item_id="100000" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_BG" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="7" available_to_promise_total="7"></inventory_item>
+    <inventory_item inventory_item_id="100001" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_BG" status_id="EFFECTIVE" facility_id="SF_WAREHOUSE" quantity_on_hand_total="3" available_to_promise_total="3"></inventory_item>
+
+</dataset>

@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<dataset>
+
+    <product_store product_store_id="APPLEPIE-TEST" store_name="测试店铺" pay_to_party_id="0" auto_refund="0" default_return_facility_id="WY_WAREHOUSE" inventory_facility_id="WY_WAREHOUSE" one_inventory_facility="Y" check_inventory="Y" reserve_inventory="Y" require_inventory="Y" order_number_prefix="TEST"/>
+    <product_store_facility product_store_id="APPLEPIE-TEST" FACILITY_ID="WY_WAREHOUSE" FROM_DATE="2021-06-01 10:11:21" PRODUCT_STORE_FACILITY_ID="2000"/>
+
+    <contact_mech contact_mech_id="2" contact_mech_type_id="ADDRESS"/>
+    <Party party_id="90000" party_type_id="PERSON"></Party>
+    <party_contact_mech party_id="90000" contact_mech_id="2" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+
+    <Party party_id="90001" party_type_id="PARTY_GROUP"></Party>
+    <party_contact_mech party_id="90001" contact_mech_id="2" contact_mech_purpose_type_id="SHIPPING_ADDRESS" />
+
+    <Product product_id="TEST_BG" product_type_id="FINISHED_GOOD" product_name="测试用饼干"  />
+    <product_price prod_price_id="100000" product_id="TEST_BG" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="899"/>
+    <inventory_item inventory_item_id="100000" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_BG" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <Product product_id="TEST_MT" product_type_id="FINISHED_GOOD" product_name="测试用面条"  />
+    <product_price prod_price_id="100001" product_id="TEST_MT" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="600"/>
+    <inventory_item inventory_item_id="100001" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_MT" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <Product product_id="TEST_GF" product_type_id="FINISHED_GOOD" product_name="测试用谷粉"  />
+    <product_price prod_price_id="100002" product_id="TEST_GF" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="990"/>
+    <inventory_item inventory_item_id="100002" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_GF" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+    <Product product_id="TEST_YSY" product_type_id="FINISHED_GOOD" product_name="测试用益生元"  />
+    <product_price prod_price_id="100003" product_id="TEST_YSY" product_price_type_id="LIST_PRICE" curreny_code="CNY" from_date="2021-06-01 10:11:21" price="550"/>
+    <inventory_item inventory_item_id="100003" inventory_item_type_id="NON_SERIAL" owner_party_id="0" product_id="TEST_YSY" status_id="EFFECTIVE" facility_id="WY_WAREHOUSE" quantity_on_hand_total="10" available_to_promise_total="10"></inventory_item>
+
+
+    <!--
+        三个月内的新用户无法进行测试
+        1.需要登陆用户关联的什么apiAccountId
+        2.需要外部关联的app_ext数据
+        3.测试数据找过三个月后就不行
+    -->
+<!--    <Product_Store_Promo_Appl pspa_id="2000" product_Store_Id="APPLEPIE-TEST" product_Promo_Id="2000" from_Date="2021-09-14 00:00:00.000"/>-->
+
+<!--    <Product_Promo product_Promo_Id="2000" promo_Name="新用户，可享受指定商品10元体验" use_Limit_Per_Customer="1"/>-->
+
+<!--    <Product_Promo_Rule ppr_id="2000" product_Promo_Id="2000" product_Promo_Rule_Id="1" rule_Name="TEST_BG十元促销"/>-->
+
+<!--    <Product_Promo_Cond ppc_id="2000" product_Promo_Id="2000" product_Promo_Rule_Id="1" product_Promo_Cond_Seq_Id="1" input_Param_Enum_Id="NEW_USER"/>-->
+
+<!--    <Product_Promo_Action ppa_id="2000" product_Promo_Id="2000" product_Promo_Rule_Id="1" product_Promo_Action_Seq_Id="1" product_Promo_Action_Enum_Id="PROMO_PROD_PRICE" product_Id="TEST_BG" quantity="2" amount="10"/>-->
+
+    <!-- 1 -->
+    <Product_Store_Promo_Appl pspa_id="2001" product_Store_Id="APPLEPIE-TEST" product_Promo_Id="2001" from_Date="2021-09-14 00:00:00.000"/>
+    <Product_Promo product_Promo_Id="2001" promo_Name="未下单用户，可享受指定商品10元体验" use_Limit_Per_Customer="1"/>
+    <Product_Promo_Rule ppr_id="2001" product_Promo_Id="2001" product_Promo_Rule_Id="1" rule_Name="TEST_MT十元促销"/>
+    <Product_Promo_Cond ppc_id="2001" product_Promo_Id="2001" product_Promo_Rule_Id="1" product_Promo_Cond_Seq_Id="1" input_Param_Enum_Id="NO_ORDER" operator_Enum_Id="" cond_Value=""/>
+    <Product_Promo_Action ppa_id="2001" product_Promo_Id="2001" product_Promo_Rule_Id="1" product_Promo_Action_Seq_Id="1" product_Promo_Action_Enum_Id="PROMO_PROD_PRICE" product_Id="TEST_MT" quantity="2" amount="10"/>
+
+    <!-- 2 -->
+    <Product_Store_Promo_Appl pspa_id="2002" product_Store_Id="APPLEPIE-TEST" product_Promo_Id="2002" from_Date="2021-09-14 00:00:00.000"/>
+    <Product_Promo product_Promo_Id="2002" promo_Name="小计满200块，谷粉可享受2件50块,无限制永久生效"/>
+    <Product_Promo_Rule ppr_id="2002" product_Promo_Id="2002" product_Promo_Rule_Id="1" rule_Name="小计满200块，谷粉可享受2件50块"/>
+    <Product_Promo_Cond ppc_id="2002" product_Promo_Id="2002" product_Promo_Rule_Id="1" product_Promo_Cond_Seq_Id="1" operator_Enum_Id="PPC_GTE" cond_Value="200" input_Param_Enum_Id="PPIP_ORDER_TOTAL"/>
+    <Product_Promo_Action ppa_id="2002" product_Promo_Id="2002" product_Promo_Rule_Id="1" product_Promo_Action_Seq_Id="1" product_Promo_Action_Enum_Id="PROMO_PROD_PRICE" product_Id="TEST_GF" quantity="2" amount="50"/>
+
+    <!-- 3 -->
+    <Product_Store_Promo_Appl pspa_id="2003" product_Store_Id="APPLEPIE-TEST" product_Promo_Id="2003" from_Date="2021-09-14 00:00:00.000"/>
+    <Product_Promo product_Promo_Id="2003" promo_Name="购买谷粉送营销物料（饼干，面条）"/>
+    <Product_Promo_Rule ppr_id="2003" product_Promo_Id="2003" product_Promo_Rule_Id="1" rule_Name="购买谷粉送营销物料，买一件"/>
+    <Product_Promo_Cond ppc_id="2003" product_Promo_Id="2003" product_Promo_Rule_Id="1" product_Promo_Cond_Seq_Id="1" operator_Enum_Id="PPC_EQ" cond_Value="1" input_Param_Enum_Id="CART_PRODUCT_QUANT"/>
+    <product_promo_product ppp_id="2000" product_promo_id="2003" product_promo_rule_id="1" product_Promo_Cond_Seq_Id="1"  product_id="TEST_GF" product_promo_appl_enum_id="PPPA_INCLUDE"/>
+    <Product_Promo_Action ppa_id="2003" product_Promo_Id="2003" product_Promo_Rule_Id="1" product_Promo_Action_Seq_Id="1" product_Promo_Action_Enum_Id="MARKETING_MATERIAL" product_Id="TEST_BG" quantity="1"/>
+    <Product_Promo_Action ppa_id="2004" product_Promo_Id="2003" product_Promo_Rule_Id="1" product_Promo_Action_Seq_Id="2" product_Promo_Action_Enum_Id="MARKETING_MATERIAL" product_Id="TEST_MT" quantity="1"/>
+
+    <Product_Promo_Rule ppr_id="2003" product_Promo_Id="2003" product_Promo_Rule_Id="2" rule_Name="购买谷粉送营销物料，买两件或大于两件"/>
+    <Product_Promo_Cond ppc_id="2003" product_Promo_Id="2003" product_Promo_Rule_Id="2" product_Promo_Cond_Seq_Id="1" operator_Enum_Id="PPC_GTE" cond_Value="2" input_Param_Enum_Id="CART_PRODUCT_QUANT"/>
+    <product_promo_product ppp_id="2001" product_promo_id="2003" product_promo_rule_id="2" product_Promo_Cond_Seq_Id="1"  product_id="TEST_GF" product_promo_appl_enum_id="PPPA_INCLUDE"/>
+    <Product_Promo_Action ppa_id="2005" product_Promo_Id="2003" product_Promo_Rule_Id="2" product_Promo_Action_Seq_Id="1" product_Promo_Action_Enum_Id="MARKETING_MATERIAL" product_Id="TEST_BG" quantity="2"/>
+    <Product_Promo_Action ppa_id="2006" product_Promo_Id="2003" product_Promo_Rule_Id="2" product_Promo_Action_Seq_Id="2" product_Promo_Action_Enum_Id="MARKETING_MATERIAL" product_Id="TEST_MT" quantity="2"/>
+</dataset>
