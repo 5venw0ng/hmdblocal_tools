@@ -1,6 +1,6 @@
 ## 项目介绍
 
-本项目用于本地化查询、导出 HMDB 中的代谢物的信息。原始数据来自于：https://hmdb.ca/downloads，先使用 Python 将原始代谢物的数据导入到 Mongo DB 中，然后在提供查询和导出。
+本项目用于本地化查询、导出 HMDB 中的代谢物的信息。原始数据来自于：https://hmdb.ca/downloads ，先使用 Python 将原始代谢物的数据导入到 Mongo DB 中，然后在提供查询和导出。
 
 ## 运行说明
 
@@ -25,3 +25,4 @@
 ![1](https://github.com/5venw0ng/hmdblocal_tools/blob/master/2022-11-11_14-44.png)
 
 ![2](https://github.com/5venw0ng/hmdblocal_tools/blob/master/2022-11-11_14-44_1.png)
+
